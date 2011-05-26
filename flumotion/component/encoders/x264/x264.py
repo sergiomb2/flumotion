@@ -30,7 +30,8 @@ class X264(feedcomponent.EncoderComponent):
     checkOffset = True
 
     def get_pipeline_string(self, properties):
-        return "ffmpegcolorspace ! x264enc name=encoder"
+        return "ffmpegcolorspace ! x264enc name=encoder %s" % (
+            properties.get('append-string', ''),)
 
     def configure_pipeline(self, pipeline, properties):
         element = pipeline.get_by_name('encoder')

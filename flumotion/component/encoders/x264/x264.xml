@@ -24,7 +24,9 @@
         <property name="keyframe-maxdistance" type="int"
                   _description="The maximum distance between key frames (in frames)." />
         <property name="option-string" type="string"
-                  _description="Custom parameters to pass to x264 encoder." />
+                  _description="custom parameters to pass to x264 encoder." />
+        <property name="append-string" type="string"
+                  _description="custom parameters to append to the x264 encoder pipeline." />
         <property name="quality" type="int"
                   _description="Speed/quality tradeoff." />
       </properties>
