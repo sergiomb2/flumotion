@@ -29,7 +29,7 @@
 
   <bundles>
 
-    <bundle project="ugly" name="lamemp3-component">
+    <bundle name="lamemp3-component">
         <dependencies>
             <dependency name="component" />
             <dependency name="worker-checks" />

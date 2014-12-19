@@ -25,7 +25,7 @@
 
   <bundles>
 
-    <bundle project="ugly" name="faacmuxer-component">
+    <bundle name="faacmuxer-component">
         <dependencies>
             <dependency name="component" />
         </dependencies>

@@ -24,7 +24,7 @@
   </components>
 
   <bundles>
-    <bundle project="ugly" name="gst-flv-muxer">
+    <bundle name="gst-flv-muxer">
         <dependencies>
             <dependency name="component" />
             <dependency name="muxers-base" />

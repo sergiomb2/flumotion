@@ -37,7 +37,7 @@
 
   <bundles>
 
-    <bundle project="ugly" name="x264-component">
+    <bundle name="x264-component">
         <dependencies>
             <dependency name="component" />
             <dependency name="worker-checks" />

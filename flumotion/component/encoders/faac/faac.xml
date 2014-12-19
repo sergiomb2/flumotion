@@ -31,7 +31,7 @@
 
   <bundles>
 
-    <bundle project="ugly" name="faac-component">
+    <bundle name="faac-component">
         <dependencies>
             <dependency name="component" />
             <dependency name="worker-checks" />

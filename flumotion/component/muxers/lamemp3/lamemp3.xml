@@ -25,7 +25,7 @@
 
   <bundles>
 
-    <bundle project="ugly" name="lamemp3muxer-component">
+    <bundle name="lamemp3muxer-component">
         <dependencies>
             <dependency name="component" />
         </dependencies>
