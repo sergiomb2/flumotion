@@ -24,7 +24,7 @@ class LameMp3(feedcomponent.EncoderComponent):
 
     def get_pipeline_string(self, properties):
         return 'audioconvert ! audioresample ! lamemp3enc name=encoder' + \
-               ' ! mp3parse'
+               ' ! mpegaudioparse'
 
     def configure_pipeline(self, pipeline, properties):
         element = pipeline.get_by_name('encoder')
