@@ -20,13 +20,10 @@ from flumotion.component import feedcomponent
 __version__ = "$Rev: 8561 $"
 
 
-class Faac(feedcomponent.EncoderComponent):
+class Voaac(feedcomponent.EncoderComponent):
 
     def get_pipeline_string(self, properties):
-        frmt = properties.get('adts', False) and 1 or 0
-
-        return ("audioconvert ! audioresample ! faac name=encoder "
-                "outputformat=%d" % frmt)
+        return ("audioconvert ! audioresample ! voaacenc name=encoder")
 
     def configure_pipeline(self, pipeline, properties):
         element = pipeline.get_by_name('encoder')

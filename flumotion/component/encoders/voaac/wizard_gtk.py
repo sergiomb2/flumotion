@@ -27,26 +27,26 @@ __version__ = "$Rev: 7268 $"
 _ = gettext.gettext
 
 
-class FaacAudioEncoder(AudioEncoder):
-    componentType = 'faac-encoder'
+class VoaacAudioEncoder(AudioEncoder):
+    componentType = 'voaac-encoder'
 
     def __init__(self):
-        super(FaacAudioEncoder, self).__init__()
+        super(VoaacAudioEncoder, self).__init__()
 
         self.properties.bitrate = 128
 
     def getProperties(self):
-        properties = super(FaacAudioEncoder, self).getProperties()
+        properties = super(VoaacAudioEncoder, self).getProperties()
         properties.bitrate *= 1000
         return properties
 
 
-class FaacStep(AudioEncoderStep):
-    name = 'Faac AAC encoder'
-    title = _('Faac AAC Encoder')
-    sidebarName = _('Faac AAC')
-    componentType = 'faac'
-    docSection = 'help-configuration-assistant-encoder-faac'
+class VoaacStep(AudioEncoderStep):
+    name = 'Voaac AAC encoder'
+    title = _('Voaac AAC Encoder')
+    sidebarName = _('Voaac AAC')
+    componentType = 'voaac'
+    docSection = 'help-configuration-assistant-encoder-voaac'
     docAnchor = ''
     docVersion = 'local'
 
@@ -65,15 +65,15 @@ class FaacStep(AudioEncoderStep):
 
     def workerChanged(self, worker):
         self.model.worker = worker
-        self.wizard.requireElements(worker, 'faac')
+        self.wizard.requireElements(worker, 'voaac')
 
 
-class FaacWizardPlugin(object):
+class VoaacWizardPlugin(object):
     implements(IEncoderPlugin)
 
     def __init__(self, wizard):
         self.wizard = wizard
-        self.model = FaacAudioEncoder()
+        self.model = VoaacAudioEncoder()
 
     def getConversionStep(self):
-        return FaacStep(self.wizard, self.model)
+        return VoaacStep(self.wizard, self.model)
