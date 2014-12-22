@@ -24,7 +24,7 @@ from flumotion.component import feedcomponent
 __version__ = "$Rev$"
 
 
-class FAACMuxer(feedcomponent.MultiInputParseLaunchComponent):
+class VOAACMuxer(feedcomponent.MultiInputParseLaunchComponent):
     checkOffset = True
 
     def get_muxer_string(self, properties):
