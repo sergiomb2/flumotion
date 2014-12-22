@@ -1,0 +1,48 @@
+<registry>
+
+  <components>
+
+    <component type="voaac-encoder" base="flumotion/component/encoders/voaac"
+               _description="Encodes a raw audio feed using the voaac encoder." >
+      <source location="flumotion.component.encoders.voaac.voaac" />
+      <eater name="default" />
+      <feeder name="default" />
+      <entries>
+        <entry type="component" location="voaac.py"
+               function="Voaac"/>
+        <entry type="wizard" location="wizard_gtk.py"
+               function="VoaacWizardPlugin"/>
+      </entries>
+
+      <wizard _description="voaac aac" type="audio-encoder"
+              feeder="default" eater="default">
+        <provide-format media-type="aac" />
+      </wizard>
+      <properties>
+        <property name="bitrate" type="int"
+                  _description="The bit rate to encode at (in bps)." />
+      </properties>
+
+    </component>
+
+  </components>
+
+  <bundles>
+
+    <bundle name="voaac-component">
+        <dependencies>
+            <dependency name="component" />
+            <dependency name="worker-checks" />
+        </dependencies>
+
+        <directories>
+            <directory name="flumotion/component/encoders/voaac">
+                <filename location="__init__.py"/>
+                <filename location="voaac.py" />
+                <filename location="wizard_gtk.py" />
+            </directory>
+        </directories>
+    </bundle>
+  </bundles>
+
+</registry>

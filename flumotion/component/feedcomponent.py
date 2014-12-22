@@ -981,7 +981,8 @@ class EncoderComponent(ParseLaunchComponent):
         encoder.get_static_pad('sink').add_probe(Gst.PadProbeType.EVENT_BOTH,
                                                     self.handle_reset_event, None)
 
-    def handle_reset_event(self, pad, event, user_data):
+    def handle_reset_event(self, pad, info, user_data):
+        event=info.get_event()
         if gstreamer.event_is_flumotion_reset(event):
             self.debug("Got reset event in the encoder... reseting it!")
             encoder = self.get_element('encoder')
