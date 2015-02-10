@@ -15,28 +15,25 @@
 #
 # Headers in this file shall remain intact.
 
-"""Wizard plugin for the ogg, multipart, webm, mp4 and mkv muxers
-"""
+import gi
+gi.require_version('Gst', '1.0')
+from gi.repository import Gst
+from twisted.internet import defer
 
-from flumotion.component.muxers import base
+from flumotion.component import feedcomponent
+from flumotion.worker.checks import check
 
 __version__ = "$Rev$"
 
 
-class OggWizardPlugin(base.MuxerPlugin):
-    requirements = ['oggmux']
+class Mkv(feedcomponent.MuxerComponent):
+    checkTimestamp = True
 
+    def do_check(self):
+        return check.do_check(self, check.checkPlugin, 'matroska',
+                              'gst-plugins-good', (0, 10, 24))
 
-class MultipartWizardPlugin(base.MuxerPlugin):
-    requirements = ['multipartmux']
+    def get_muxer_string(self, properties):
+        muxer = 'matroskamux name=muxer streamable=true'
 
-
-class WebMWizardPlugin(base.MuxerPlugin):
-    requirements = ['webmmux']
-
-
-class MP4WizardPlugin(base.MuxerPlugin):
-    requirements = ['mp4mux']
-
-class MKVWizardPlugin(base.MuxerPlugin):
-    requirements = ['matroskamux']
+        return muxer

@@ -83,6 +83,26 @@
       </wizard>
     </component>
 
+    <component type="mkv-muxer" base="flumotion/component/muxers"
+               _description="Muxes encoded feeds into an MKV feed.">
+      <source location="flumotion.component.muxers.mkv"/>
+      <feeder name="default"/>
+      <eater name="default" multiple="yes"/>
+      <entries>
+      <entry type="component" location="mkv.py"
+      function="MKV"/>
+      <entry type="wizard" location="wizard_gtk.py"
+      function="MKVWizardPlugin"/>
+      </entries>
+      <wizard _description="MKV" type="muxer"
+      feeder="default" eater="default">
+      <accept-format media-type="h264"/>
+      <accept-format media-type="aac"/>
+      <accept-format media-type="mp3"/>
+      <provide-format media-type="mp4" />
+      </wizard>
+    </component>
+
   </components>
 
   <bundles>
@@ -106,6 +126,7 @@
                 <filename location="ogg.py" />
                 <filename location="webm.py" />
                 <filename location="mp4.py" />
+                <filename location="mkv.py" />
                 <filename location="checks.py" />
                 <filename location="wizard_gtk.py" />
             </directory>
