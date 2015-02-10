@@ -30,7 +30,7 @@ class X264(feedcomponent.EncoderComponent):
     checkOffset = True
 
     def get_pipeline_string(self, properties):
-        return "videoconvert ! x264enc name=encoder %s" % (
+        return "videoconvert ! x264enc name=encoder %s ! video/x-h264, stream-format=(string)avc" % (
             properties.get('append-string', ''),)
 
     def configure_pipeline(self, pipeline, properties):
