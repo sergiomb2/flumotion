@@ -26,7 +26,7 @@ from flumotion.worker.checks import check
 __version__ = "$Rev$"
 
 
-class Mkv(feedcomponent.MuxerComponent):
+class MKV(feedcomponent.MuxerComponent):
     checkTimestamp = True
 
     def do_check(self):

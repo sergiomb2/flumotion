@@ -99,7 +99,11 @@
       <accept-format media-type="h264"/>
       <accept-format media-type="aac"/>
       <accept-format media-type="mp3"/>
-      <provide-format media-type="mp4" />
+      <accept-format media-type="vorbis"/>
+      <accept-format media-type="theora"/>
+      <accept-format media-type="vp8"/>
+      <accept-format media-type="dv"/>
+      <provide-format media-type="mkv" />
       </wizard>
     </component>
 
