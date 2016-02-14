@@ -6,6 +6,8 @@ component_PYTHON = \
 	checks.py \
 	webm.py \
 	multipart.py \
+	mp4.py \
+    mkv.py \
 	ogg.py \
 	wizard_gtk.py
 

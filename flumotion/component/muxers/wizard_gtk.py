@@ -15,7 +15,7 @@
 #
 # Headers in this file shall remain intact.
 
-"""Wizard plugin for the ogg, multipart and webm muxers
+"""Wizard plugin for the ogg, multipart, webm, mp4 and mkv muxers
 """
 
 from flumotion.component.muxers import base
@@ -33,3 +33,10 @@ class MultipartWizardPlugin(base.MuxerPlugin):
 
 class WebMWizardPlugin(base.MuxerPlugin):
     requirements = ['webmmux']
+
+
+class MP4WizardPlugin(base.MuxerPlugin):
+    requirements = ['mp4mux']
+
+class MKVWizardPlugin(base.MuxerPlugin):
+    requirements = ['matroskamux']

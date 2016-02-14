@@ -181,6 +181,7 @@ flumotion/component/consumers/fgdp/Makefile
 flumotion/component/consumers/icystreamer/Makefile
 flumotion/component/consumers/httpstreamer/Makefile
 flumotion/component/consumers/hlsstreamer/Makefile
+flumotion/component/consumers/justintv/Makefile
 flumotion/component/consumers/pipeline/Makefile
 flumotion/component/consumers/preview/Makefile
 flumotion/component/consumers/shout2/Makefile
@@ -205,6 +206,9 @@ flumotion/component/plugs/html5/Makefile
 flumotion/component/producers/Makefile
 flumotion/component/producers/audiotest/Makefile
 flumotion/component/producers/bttv/Makefile
+flumotion/component/producers/blackmagic/Makefile
+flumotion/component/producers/dvsource/Makefile
+flumotion/component/producers/dvswitch/Makefile
 flumotion/component/producers/firewire/Makefile
 flumotion/component/producers/fgdp/Makefile
 flumotion/component/producers/icecast/Makefile

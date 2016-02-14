@@ -17,7 +17,9 @@
 
 import time
 
-import gst
+import gi
+gi.require_version('Gst', '1.0')
+from gi.repository import Gst
 
 from twisted.internet import reactor
 
@@ -141,16 +143,16 @@ class FeederClient:
 
     def setStats(self, stats):
         """
-        @type stats: list
+        @type stats: GstStructure
         """
-        bytesSent = stats[0]
-        #timeAdded = stats[1]
-        #timeRemoved = stats[2]
-        #timeActive = stats[3]
-        timeLastActivity = float(stats[4]) / gst.SECOND
-        if len(stats) > 5:
+        bytesSent = stats["bytes-sent"]
+        #timeAdded = stats["connect-time"]
+        #timeRemoved = stats["disconnect-time"]
+        #timeActive = stats["connect-duration"]
+        timeLastActivity = float(stats["last-activitity-time"]) / Gst.SECOND
+        if stats.n_fields() > 5:
             # added in gst-plugins-base 0.10.11
-            buffersDropped = stats[5]
+            buffersDropped = stats["buffers-dropped"]
         else:
             # We don't know, but we cannot use None
             # since that would break integer addition below

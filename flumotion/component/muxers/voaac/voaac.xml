@@ -1,0 +1,43 @@
+<registry>
+
+  <components>
+    <component type="voaac-muxer"
+               base="flumotion/component/muxers/aac"
+               _description="Repeater muxer to allow AAC with ADTS headers.">
+      <source location="flumotion.component.muxers.voaac.voaac" />
+
+      <eater name="default" multiple="yes" />
+      <feeder name="default" />
+
+      <entries>
+        <entry type="component" location="aac.py"
+               function="VOAACMuxer" />
+      </entries>
+
+      <wizard _description="VOAAC (ADTS)" type="muxer"
+              feeder="default" eater="default">
+        <accept-format media-type="audio:aac"/>
+        <provide-format media-type="aac"/>
+      </wizard>
+
+    </component>
+  </components>
+
+  <bundles>
+
+    <bundle name="voaacmuxer-component">
+        <dependencies>
+            <dependency name="component" />
+        </dependencies>
+
+        <directories>
+            <directory name="flumotion/component/muxers/voaac">
+                <filename location="__init__.py" />
+                <filename location="voaac.py" />
+            </directory>
+        </directories>
+    </bundle>
+
+  </bundles>
+
+</registry>
