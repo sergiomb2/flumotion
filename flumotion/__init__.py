@@ -15,6 +15,8 @@
 #
 # Headers in this file shall remain intact.
 
+import gi
+gi.require_version('Gst', '1.0')
 from gi.repository import Gst
 
 Gst.CLOCK_TIME_NONE = 18446744073709551615L
