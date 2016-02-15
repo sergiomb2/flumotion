@@ -1,0 +1,235 @@
+2012-05-05  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  For commands without subcommands, fix usage and %command.
+
+2011-08-29  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  For commands with subcommands, copy over summary if description
+	  is missing.
+
+2011-08-23  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  Without a description, format_description never gets called,
+	  so we don't see subcommands.  Assert.
+
+2011-08-05  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	* manholecmd.py:
+	* test_command.py:
+	  PEP8 cleanups.
+
+2011-08-05  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  Since we use properties (introduced in python 2.2), make
+	  Command a new-style class.
+
+2011-08-05  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	* test_command.py:
+	  Make automatic naming work for new-style classes.
+
+2011-08-05  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* manholecmd.py:
+	  Remove unused modules.
+
+2011-05-30  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* test_command.py:
+	  Usage goes to stdout now.
+
+2011-04-16  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  Docs, cleanups.
+	  Actually return the result of the Command.parse invocation
+	  in the do_* handler.
+	* manholecmd.py:
+	  Handle and wait for deferreds from the do_* handler in the
+	  interpreter before showing the next command prompt.
+	  Fix the example you get by running it, and add a defer command
+	  to show the deferred handling.
+
+2011-04-16  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* manholecmd.py:
+	  Factor out terminal resetting methods into a Stdio class.
+	  Fix up example again.
+
+2011-04-03  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  Set cmdClass.command properly.
+	* manholecmd.py:
+	  Make sure we set stdout on the root command, so it trickles down.
+
+2011-04-03  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  Fixed wrong parse delegation.
+	  Make stderr a property too for now.
+	  Don't set too many stdout/stderr.
+
+2011-04-03  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  Don't set stdout/stderr by default.
+	  Make stdout a property; have commands delegate upwards if not set.
+	  Encode utf-8 commands for output.
+	* manholecmd.py:
+	  Make sure we don't get unicode.
+	  Don't reset and clear the screen when we stop.
+	  System out to stty sane for now.
+
+2011-04-02  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* manholecmd.py:
+	  Use our own ServerProtocol subclass that does not reset terminal
+	  when Ctrl-D is pressed.
+
+2011-04-02  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  Fix more wrong stdout redirection.
+
+2011-04-02  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  Add commandToCmdClass as the preferred interface.
+
+2011-04-02  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* manholecmd.py (added):
+	  A way of using Twisted's manhole to create a REPL using
+	  the cmd.Cmd class and integrating with Twisted's reactor.
+
+2011-01-09  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  Input from the command loop is coming from the terminal.
+	  Most likely it is utf-8-encoded, so decode it to unicode before
+	  invoking do.
+
+2010-11-29  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	* help2man.py:
+	  pep-8 and pychecker fixes.
+
+2009-11-02  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  Fix pep8 error.
+
+2009-11-01  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  Allow natural formatting of a list, identified by a line that
+	  starts with a space then a dash.
+
+2009-11-01  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  Add aliases to the interpreter as well.
+
+2009-11-01  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  Allow a command with subcommands to implement a specific do()
+	  as well if no arguments are given.
+
+	  Add a method to give you a cmd.Cmd-style object that can be used
+	  to implement a shell main loop.
+
+2009-10-17  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  Add getFullName method, to give you the full command name (with
+	  parent commands).
+	  Add file parameters to usage and help output, so we can redirect
+	  somewhere else.  Also add a width parameter to control the width
+	  of that output.
+
+2009-06-27  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  BaseException.message existed and is deprecated, so rename.
+	  Also output the output in the exception.
+
+2009-06-27  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  Add CommandExited and subclasses, so we can have a
+	  common subclass for command classes that start their
+	  do() method with the same code to check arguments/conditions,
+	  then raise if they don't.
+
+2009-05-23  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  Fix reference in docstring.
+
+2008-08-30  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  Change usage to not include the own name.  This allows us
+	  to do the right default thing for commands with subcommands.
+
+2008-08-03  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* test_command.py:
+	  Fix test.
+
+2008-08-01  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	patch by: Johan Dahlin
+
+	* command.py:
+	* test_command.py:
+	  Clean up with pep8.py
+
+2008-07-31  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  Allowing returning None, to indicate nothing was done,
+	  so help can properly fall through.
+
+2008-05-15  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* test_command.py:
+	  Fix test after we made exit stop raising SystemExit
+
+2008-05-15  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  add OptionParser.{help,usage}_printed so that Command subclasses
+	  that override parse can exit properly as soon as help or usage
+	  is printed.
+
+2008-05-12  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  Override exit() so that we don't actually exit when used in
+	  an interactive shell.
+	  Add API docs.
+
+2007-07-19  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* test_command.py:
+	  Seems on F7 that optparse outputs a capital for the first letter.
+
+2007-06-24  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* test_command.py:
+	  Add tests from Savon.
+
+2007-06-24  Thomas Vander Stichele  <thomas at apestaart dot org>
+
+	* command.py:
+	  Add help command.  Fixes #240.

@@ -3,8 +3,10 @@ include $(top_srcdir)/common/python.mk
 all-local: command
 
 command:
-	svn co http://thomas.apestaart.org/moap/svn/trunk/moap/extern/command@509
-	svn info command > command.revision
+	echo previous done:
+	echo svn co http://thomas.apestaart.org/moap/svn/trunk/moap/extern/command@509
+	echo "svn info command > command.revision"
+	echo 509 > command.revision
 
 command/__init__.py: command
 
