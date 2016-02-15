@@ -9,6 +9,8 @@ AC_INIT(flumotion, m4_esyscmd([ test -z "$VERSION" && VERSION=0.11.0.1;
 
 dnl initialize automake
 AM_INIT_AUTOMAKE([-Wno-portability])
+m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES([yes])])
+AC_CONFIG_HEADER(config.h)
 
 dnl define PACKAGE_VERSION_* variables
 AS_VERSION
